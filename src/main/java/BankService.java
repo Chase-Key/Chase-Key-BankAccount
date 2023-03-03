@@ -23,7 +23,8 @@ public class BankService {
      * @param amount the amount to be deposited.
      */
     public void deposit(double amount){
-
+        balance += amount;
+        System.out.println("Your balance is: " + balance);
     }
 
     /**
@@ -32,7 +33,12 @@ public class BankService {
      * @param amount the amount to be withdrawn.
      */
     public void withdraw(double amount){
-
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Your balance is: " + balance);
+        } else {
+            System.out.println("Transaction cannot occur.");
+        }
     }
 
     /**
@@ -40,6 +46,6 @@ public class BankService {
      * @return the user's balance.
      */
     public double getBalance(){
-        return 0;
+        return balance;
     }
 }
